@@ -1,5 +1,5 @@
 //imports icones 
-import { Lock, User } from 'lucide-react'
+import { Lock, User, Mail } from 'lucide-react'
 
 //imports react/next
 import { useContext, useState } from 'react'
@@ -8,6 +8,8 @@ import { useForm } from 'react-hook-form'
 //imports zod
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
+
+//imports context de autenticação
 import { AuthContext } from '../../contexts/auth';
 
 
@@ -16,12 +18,14 @@ const LoginFormSchema = z.object({
   email: z.string()
     .nonempty('Preencha este campo')
     .email('Digite um E-mail válido')
-    .toLowerCase(),
+    .toLowerCase()
+    .trim(),
 
   password: z.string()
     .min(6, 'A senha precisa de no mínimo 6 caracteres')
     .max(30, 'A senha não pode contém mais que 30 caracteres')
-    .nonempty('Preencha este campo'),
+    .nonempty('Preencha este campo')
+    .trim(),
 })
 
 function SignIn() {
@@ -58,6 +62,7 @@ function SignIn() {
     setLoading(true)
     await signIn(data.email, data.password)
     setOutput(JSON.stringify(data, null, 2)) // mostra o console.log do formulário
+    setLoading(false)
   }
 
   return (
@@ -68,7 +73,7 @@ function SignIn() {
             <div className='flex w-full flex-col px-14 pt-10 justify-center items-center gap-8'>
               <div className='flex flex-col w-full'>
                 <div className='flex relative w-full space-x-2 items-center justify-center'>
-                  <User strokeWidth={2} width={30} height={30} />
+                  <Mail strokeWidth={2} width={30} height={30} />
                   <input required {...register('email')} onChange={e => setEmail(e.target.value)} value={email} id='email' className={styleInput} type='text' />
                   <label htmlFor='email' className={styleLabel}>Email</label>
                 </div>
@@ -88,7 +93,7 @@ function SignIn() {
             </div>
             <div className='flex w-full flex-col justify-center items-center'>
               <button type='submit' className='bg-green-600 flex justify-center font-semibold py-1 border border-zinc-500 text-lg w-6/12 text-center items-center rounded-lg hover:border-black hover:bg-green-700' >
-                Logar
+                {isLoading ? 'Carregando...' : 'Entrar'}
               </button>
             </div>
             <div className="flex w-full flex-row px-4">
