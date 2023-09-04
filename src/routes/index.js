@@ -1,0 +1,20 @@
+import { Routes, Route } from 'react-router-dom'
+
+import Register from '../pages/Register/index';
+import SignIn from '../pages/SignIn/index.js';
+import Dashboard from '../pages/Dashboard/index';
+
+import Private from './private.js';
+
+function RoutesApp() {
+  return (
+    <Routes>
+      <Route path="/" element={<SignIn />} />
+      <Route path="/dashboard" element={<Private><Dashboard /></Private>} />
+      <Route path='/register' element={<Register />} />
+      <Route path="*" element={<h1>Not Found 404</h1>} />
+    </Routes>
+  )
+}
+
+export default RoutesApp;

@@ -1,4 +1,4 @@
-const AfterLogin = () => {
+const Dashboard = () => {
   return ( 
     <>
       <div>
@@ -8,4 +8,4 @@ const AfterLogin = () => {
    );
 }
  
-export default AfterLogin;
+export default Dashboard;
