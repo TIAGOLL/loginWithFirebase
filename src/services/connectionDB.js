@@ -4,13 +4,14 @@ import { getFirestore } from 'firebase/firestore'
 import { getStorage } from 'firebase/storage';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDR9tDeSTtz-32iqoL89ntABHfo9J9KCWw",
-  authDomain: "tickets-chamado.firebaseapp.com",
-  projectId: "tickets-chamado",
-  storageBucket: "tickets-chamado.appspot.com",
-  messagingSenderId: "482640409767",
-  appId: "1:482640409767:web:810b672bf7a139c3f9d782"
+  apiKey: "AIzaSyDiuu1IgvoPi1ZsHqMLYbVcIyFGizE_NUU",
+  authDomain: "db-tarefa2-4per.firebaseapp.com",
+  projectId: "db-tarefa2-4per",
+  storageBucket: "db-tarefa2-4per.appspot.com",
+  messagingSenderId: "266824206133",
+  appId: "1:266824206133:web:8ccf626268e590119c6e7c"
 };
+
 
 const firebaseApp = initializeApp(firebaseConfig);
 
