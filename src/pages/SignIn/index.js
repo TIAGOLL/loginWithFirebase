@@ -1,5 +1,5 @@
 //imports icones 
-import { Lock, User, Mail } from 'lucide-react'
+import { Lock, Mail } from 'lucide-react'
 
 //imports react/next
 import { useContext, useState } from 'react'
@@ -42,8 +42,8 @@ function SignIn() {
 
   //importa as funções de autenticação
   const { signIn } = useContext(AuthContext);
-  
-  
+
+
   //validação de formulário
   const { register, handleSubmit, formState: { errors } } = useForm({
     //register: registra os campos do formulário
